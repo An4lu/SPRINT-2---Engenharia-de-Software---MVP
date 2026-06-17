@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-industrial-wine: #511024;
+  --color-industrial-wine-dark: #3b0a19;
+  --color-industrial-wine-light: #701c38;
+  --color-industrial-steel: #535657;
+  --color-industrial-steel-dark: #3b3d3e;
+  --color-industrial-steel-light: #717576;
+
+  /* High Density overrides to style all components to the dark high density theme */
+  --color-white: #1a1d23;
+  --color-slate-50: #16191f;
+  --color-slate-100: #2d323b;
+  --color-slate-200: #3a4150;
+  --color-slate-300: #4a546c;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #a9b7c6;
+  --color-slate-600: #cbd5e1;
+  --color-slate-700: #cbd5e1;
+  --color-slate-800: #e2e8f0;
+  --color-slate-900: #ffffff;
+
+  /* Red/emerald/amber semantic modifications for dark modes */
+  --color-emerald-50: #102a24;
+  --color-emerald-100: #103a30;
+  --color-emerald-800: #10b981;
+  
+  --color-red-50: #3a101b;
+  --color-red-100: #511024;
+  --color-red-200: #fca5a5;
+  --color-red-600: #ef4444;
+  --color-red-700: #fca5a5;
+  --color-red-800: #ef4444;
+}
+
+/* Custom Scrollbar for S-tier SaaS platforms */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f1115;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d323b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #511024;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-[#0f1115] text-[#e2e8f0] selection:bg-[#511024] selection:text-white antialiased overflow-x-hidden;
+  }
+}
+
+/* Custom visual pulse animation for industrial sensors */
+@keyframes sensor-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+}
+
+.animate-sensor-pulse {
+  animation: sensor-pulse 2s infinite ease-in-out;
+}
+
+/* Scanner overlay line simulator */
+@keyframes scanning {
+  0% {
+    top: 0%;
+  }
+  50% {
+    top: 100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+.animate-scanning {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #EF4444, transparent);
+  animation: scanning 4s infinite linear;
+  box-shadow: 0 0 8px #EF4444;
+}
+
